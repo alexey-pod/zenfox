@@ -1,0 +1,397 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+@text_color: #333;
+@link_color: #1d7ee4;
+@link_color_hover: #e66017;
+@font_family_all: tahoma, arial, verdana, sans-serif, Lucida Sans;
+@font_size_all: 12px;
+@font_size_text: 16px;
+@font_family_text: Trebuchet MS, Helvetica, sans-serif;
+@page_form_text_color: #777;
+@page_form_bg_color: #f3f3f8;
+@error_color: #b41d1d;
+
+body {
+    background: #fff;
+    color: #000;
+    color: @text_color;
+
+    margin: 0px;
+    padding: 0px;
+    direction: ltr;
+    font-family: @font_family_all;
+    font-size: @font_size_all;
+    font-weight: normal;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out 0s;
+}
+
+a {
+    color: @link_color;
+    text-decoration: none;
+    text-decoration: underline;
+    &:hover {
+        text-decoration: underline;
+        color: @link_color_hover;
+    }
+}
+ul,
+li {
+    list-style-type: none;
+    list-style: none outside none;
+}
+button {
+    font-family: @font_family_all;
+    font-size: @font_size_all;
+}
+input,
+input,
+textarea,
+select {
+    font-family: @font_family_all;
+    font-size: @font_size_all;
+    border: 1px solid #d9d8d4;
+    padding: 4px 4px;
+    border-radius: 2px;
+}
+input[type='text'],
+input[type='password'],
+textarea,
+select {
+    width: 100%;
+}
+input[type='checkbox'] {
+    margin: 0;
+}
+select {
+    vertical-align: middle;
+}
+input:hover,
+textarea:hover,
+select:hover {
+    border: 1px solid #b9b9b9;
+}
+input:focus,
+textarea:focus,
+select:focus {
+    border: 1px solid #219df7;
+    box-shadow: 0 0 2px 0 #007cb6;
+    outline: 0 none; /*убрать рамку в хроме*/
+    /*анимация*/
+    transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+}
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;
+    border: none;
+    padding: 0;
+    margin: 0;
+    td {
+        padding: 0;
+        margin: 0;
+        border: none;
+        vertical-align: top;
+    }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    clear: both;
+    font-family: Palatino Linotype, serif;
+    font-weight: normal;
+    line-height: 1.2;
+    margin: 0 0 16px;
+}
+h1 {
+    font-size: 36px;
+    line-height: 1.1;
+}
+h2 {
+    font-size: 30px;
+}
+h3 {
+    font-size: 24px;
+    padding-top: 16px;
+}
+h4 {
+    font-size: 20px;
+}
+h5 {
+    font-size: 18px;
+}
+h6 {
+    font-size: 16px;
+}
+@p_margin_bottom: 20px;
+p {
+    margin: 0 0 @p_margin_bottom;
+}
+.code-toolbar {
+    margin-bottom: @p_margin_bottom;
+}
+//END определения для тегов
+// color: #353d4a;
+.button {
+    // кнопка
+    // padding:7px 10px;
+    padding: 6px 10px;
+    background: #39a8f7;
+    border-radius: 2px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    &:last-child {
+        margin-right: 0px;
+    }
+    &:hover {
+        background: #219df7;
+        border: none;
+    }
+
+    // расширения для A
+    // исправление padding и остального
+    + a {
+        text-decoration: none;
+        color: #fff;
+        padding: 7px 10px;
+    }
+    //END расширения для A и BUTTON
+
+    &.small {
+        //маленькая кнопка
+        padding: 4px 4px;
+        font-size: 12px;
+    }
+    &.small + a {
+        padding: 5px 7px;
+    }
+
+    &.disabled {
+        background: #ccc;
+        cursor: default;
+    }
+} //END .button
+
+@otstup: 20px; // только для теста отступов, в реале не используется
+
+.clearfix {
+    &:after {
+        clear: both;
+        content: '';
+        display: block;
+    }
+}
+
+.page_padding {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+body,
+html {
+    height: 100%;
+    background-color: #e8e8e8;
+}
+.body-wrap-all {
+    height: 100%;
+
+    @page_width: 930px;
+    @rasporka_height: 50px;
+
+    .body-wrap {
+        margin: 0 auto;
+        width: @page_width;
+        min-height: 100%;
+        max-width: 1200px;
+        background-color: #fff;
+
+        .rasporka {
+            height: @rasporka_height;
+        }
+    }
+    .footer {
+        position: relative;
+
+        clear: both;
+        height: @rasporka_height;
+        margin-left: auto;
+        margin-right: auto;
+        width: @page_width;
+        margin-top: -1 * @rasporka_height;
+        max-width: 1200px;
+
+        .inner {
+            height: @rasporka_height;
+            background-color: #333230;
+        }
+
+        .container {
+            color: #fff;
+            padding: 20px 20px 0 20px;
+            font-weight: bold;
+            position: relative;
+        }
+    }
+    .hr {
+        //оранжевая распорка
+        background-color: #f07f32;
+        height: 1px;
+        font-size: 1px;
+    }
+}
+
+.page_container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 0;
+    padding-right: 0;
+    font-family: @font_family_text;
+    font-size: @font_size_text;
+} //END .
+
+/*ui-table*/
+.ui-table {
+    padding: 0;
+    margin: 0;
+
+    td {
+        padding: 0;
+        margin: 0;
+        line-height: normal;
+        color: #333333;
+        padding: 5px;
+        border-bottom: 1px #949494 solid;
+        transition: all 0.2s ease-in;
+        width: 33%;
+    }
+    tr.header {
+        background: #949494;
+    }
+    tr.header td {
+        color: #fff;
+        font-weight: bold;
+    }
+}
+
+/*END формы - общее*/
+
+.wrapper-content {
+    padding: 10px;
+}
+
+.hide {
+    // общие классы
+    // display: none!important;
+    display: none;
+}
+.block {
+    display: block;
+}
+.aslink {
+    border-bottom: 1px dotted @link_color;
+    color: @link_color;
+    cursor: pointer;
+    &:hover {
+        border-bottom: 1px dotted @link_color_hover;
+        color: @link_color_hover;
+    }
+}
+.clearfix {
+    &:after {
+        clear: both;
+        content: '';
+        display: block;
+    }
+}
+.link {
+    color: @link_color;
+    text-decoration: none;
+    text-decoration: underline;
+    &:hover {
+        text-decoration: underline;
+        color: @link_color_hover;
+    }
+}
+//END общие классы

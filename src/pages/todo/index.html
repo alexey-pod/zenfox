@@ -1,0 +1,22 @@
+<div>
+    <h1>{{user_item.name}} ToDo</h1>
+    <br>
+    <router-link to="/">back to users</router-link>
+    <br>
+    <br>
+    <table class="ui-table">
+        <tr class="header">
+            <td>title</td>
+            <td>completed</td>
+        </tr>
+        <tr v-for="item in todo_array" :key="item.id">
+            <td>
+                {{item.title}}
+            </td>
+            <td>
+                <template v-if="item.completed">yes</template>
+                <template v-else>no</template>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,19 @@
+<div>
+    <h1>Users</h1>
+    <br>
+    <table class="ui-table" v-if="user_array.length">
+        <tr class="header">
+            <td>name</td>
+            <td>email</td>
+            <td>phone</td>
+        </tr>
+        <tr v-for="item in user_array" :key="item.id">
+            <td>
+                <router-link tag="span" class="aslink" :to="'todo/' + item.id">{{item.name}}</router-link>
+            </td>
+            <td>{{item.email}}</td>
+            <td>{{item.phone}}</td>
+        </tr>
+    </table>
+    <pagination v-if="user_total" @select="setPage" :pp="pp" :page="page" :total="user_total" />
+</div>

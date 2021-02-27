@@ -1,0 +1,13 @@
+<div class="pagination-container">
+    <ul class="pagination">
+        <li class="previous skipToPrevious" :class="{disabled: page == 1}">
+            <a @click.stop="prev">← prev</a>
+        </li>
+        <li class="skipToLast" v-for="index in total_pages" :class="{active: index == page}">
+            <a @click.stop="select(index)">{{index}}</a>
+        </li>
+        <li class="next skipToNext" :class="{disabled: page == total_pages}">
+            <a @click.stop="next">next →</a>
+        </li>
+    </ul>
+</div>
