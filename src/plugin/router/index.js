@@ -10,6 +10,7 @@ const routes = [...IndexPage, ...TodoPage];
 const router = new VueRouter({
     mode: 'history',
     routes,
+    base: '/zenfox/',
 });
 
 export default router;
